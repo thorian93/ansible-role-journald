@@ -1,6 +1,6 @@
 # Ansible Role: Journald
 
-Ensures persistent logging for journald on RHEL/CentOS, Debian/Ubuntu and Fedora servers.
+This role ensures persistent logging for journald on RHEL/CentOS, Debian/Ubuntu and Fedora servers.
 
 ## Requirements
 
