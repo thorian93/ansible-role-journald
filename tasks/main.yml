@@ -1,16 +1,16 @@
 ---
-- name: Preflight - Fail if target host is not stable for this Role.
+- name: "Preflight - Fail if target host is not stable for this Role."
   fail:
     msg: "This role is not stable for the target operating system, {{ ansible_distribution }} {{ ansible_distribution_major_version }}."
   when: (ansible_distribution is not defined) or
         (ansible_distribution_version is not defined) or
         (ansible_distribution+" "+ansible_distribution_major_version not in journald_stable_os)
 
-- name: Alert if systemd is not there.
+- name: "Alert if systemd is not there."
   fail: msg="No systemd init system found, so no journald is available!"
   when: ansible_service_mgr != "systemd"
 
-- name: Ensure the logging directory exists.
+- name: "Ensure the logging directory exists."
   file:
     path: /var/log/journal
     state: directory
@@ -19,7 +19,7 @@
     mode: 2755
     setype: var_log_t
 
-- name: Ensure the logging is configured for persistent logging.
+- name: "Ensure the logging is configured for persistent logging."
   lineinfile:
     dest: "/etc/systemd/journald.conf"
     regexp: "^.*Storage="
