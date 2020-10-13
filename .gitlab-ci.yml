@@ -7,6 +7,7 @@ stages:
   - security
   - linting
   - deploy
+  - finish
 
 clean-build-area:
   stage: cleanup
@@ -52,3 +53,11 @@ deploy-github:
   script:
     - git remote set-url --push origin $GITHUB_REPO
     - git push origin HEAD:$CI_COMMIT_REF_NAME
+
+open-issue:
+  stage: finish
+  tags:
+    - shell
+  script:
+    - curl --request POST https://gitlab-ci-token:${CI_JOB_TOKEN}@git.cgn.rg.lan/api/v4/projects/${CI_PROJECT_ID}/issues?title=Pipeline%20${CI_PIPELINE_ID}%20failed&labels=bug"
+  when: on_failure
