@@ -6,38 +6,46 @@ variables:
 #   - template: thorian-linting-to-github.gitlab-ci.yml
 #   - template: thorian-linting.gitlab-ci.yml
 
-stages:
-  - linting
-  - deploy
+include:
+  - project: 'configurations/gitlab-ci'
+    ref: master
+    file: 'thorian-linting.gitlab-ci.yml'
+  - project: 'configurations/gitlab-ci'
+    ref: master
+    file: 'thorian-to-github.gitlab-ci.yml'
 
-ansible-lint:
-  stage: linting
-  tags:
-    - shell
-  script:
-    - ansible-lint tasks/*.yml
+# stages:
+#   - linting
+#   - deploy
 
-yaml-lint:
-  stage: linting
-  tags:
-    - shell
-  script:
-    - yamllint tasks/*.yml
+# ansible-lint:
+#   stage: linting
+#   tags:
+#     - shell
+#   script:
+#     - ansible-lint tasks/*.yml
 
-shell-lint:
-  stage: linting
-  tags:
-    - shell
-  script:
-    - find ./ -name "*.sh" -exec shellcheck {} \;
+# yaml-lint:
+#   stage: linting
+#   tags:
+#     - shell
+#   script:
+#     - yamllint tasks/*.yml
 
-deploy-github:
-  stage: deploy
-  tags:
-    - shell
-  script:
-    - echo 'git init'
-    - echo 'git remote add origin $GITHUB_REPO'
-    - echo 'git add --all'
-    - echo 'git commit -m "$CI_COMMIT_MESSAGE"'
-    - echo 'git push origin master'
+# shell-lint:
+#   stage: linting
+#   tags:
+#     - shell
+#   script:
+#     - find ./ -name "*.sh" -exec shellcheck {} \;
+
+# deploy-github:
+#   stage: deploy
+#   tags:
+#     - shell
+#   script:
+#     - git init
+#     - git remote add origin "$GITHUB_REPO"
+#     - git add --all
+#     - git commit -m "$CI_COMMIT_MESSAGE"
+#     - git push origin master
