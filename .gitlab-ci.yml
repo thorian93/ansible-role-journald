@@ -8,8 +8,16 @@ variables:
 #     file: 'thorian-linting-to-github.gitlab-ci.yml'
 
 stages:
+  - cleanup
   - linting
   - deploy
+
+clean-build-area:
+  stage: cleanup
+  tags:
+    - shell
+  script:
+    - rm -rf ./
 
 ansible-lint:
   stage: linting
@@ -37,8 +45,9 @@ deploy-github:
   tags:
     - shell
   script:
-#    - git init
-    - git remote set-url origin $GITHUB_REPO
-#    - git add --all
-#    - git commit -m $CI_COMMIT_MESSAGE
-    - git push origin master
+    - git remote -v
+    - git remote set-url --push origin $GITHUB_REPO
+    - git remote -v
+    # - git add --all
+    # - git commit -m $CI_COMMIT_MESSAGE
+    - git push origin HEAD:$CI_COMMIT_REF_NAME
