@@ -16,7 +16,7 @@
     state: directory
     owner: root
     group: systemd-journal
-    mode: 2755
+    mode: '2755'
     setype: var_log_t
 
 - name: "Ensure the logging is configured for persistent logging."

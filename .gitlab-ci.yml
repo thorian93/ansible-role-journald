@@ -2,11 +2,6 @@
 variables:
   GITHUB_REPO: "git@github.com:thorian93/ansible-role-journald.git"
 
-# include:
-#   - project: 'configurations/gitlab-ci'
-#     ref: master
-#     file: 'thorian-linting-to-github.gitlab-ci.yml'
-
 stages:
   - cleanup
   - linting
@@ -46,9 +41,5 @@ deploy-github:
   tags:
     - shell
   script:
-    - git remote -v
     - git remote set-url --push origin $GITHUB_REPO
-    - git remote -v
-    # - git add --all
-    # - git commit -m $CI_COMMIT_MESSAGE
     - git push origin HEAD:$CI_COMMIT_REF_NAME
