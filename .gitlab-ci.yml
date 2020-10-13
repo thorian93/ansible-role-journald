@@ -2,7 +2,43 @@
 variables:
   GITHUB_REPO: "git@github.com:thorian93/ansible-role-journald.git"
 
-include:
-  - project: 'configurations/gitlab-ci'
-    ref: master
-    file: 'thorian-linting-to-github.gitlab-ci.yml'
+# include:
+#   - project: 'configurations/gitlab-ci'
+#     ref: master
+#     file: 'thorian-linting-to-github.gitlab-ci.yml'
+
+stages:
+  - linting
+  - deploy
+
+ansible-lint:
+  stage: linting
+  tags:
+    - shell
+  script:
+    - ansible-lint tasks/*.yml
+
+yaml-lint:
+  stage: linting
+  tags:
+    - shell
+  script:
+    - yamllint tasks/*.yml
+
+shell-lint:
+  stage: linting
+  tags:
+    - shell
+  script:
+    - find ./ -name "*.sh" -exec shellcheck {} \;
+
+deploy-github:
+  stage: deploy
+  tags:
+    - shell
+  script:
+#    - git init
+    - git remote set-url origin $GITHUB_REPO
+#    - git add --all
+#    - git commit -m $CI_COMMIT_MESSAGE
+    - git push origin master
