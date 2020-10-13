@@ -1,10 +1,10 @@
 ---
+variables:
+  GITHUB_REPO: "git@github.com:thorian93/ansible-role-journald.git"
+
 # include:
 #   - template: thorian-linting-to-github.gitlab-ci.yml
 #   - template: thorian-linting.gitlab-ci.yml
-
-variables:
-  GITHUB_REPO: "git@github.com:thorian93/ansible-role-journald.git"
 
 stages:
   - linting
@@ -36,8 +36,8 @@ deploy-github:
   tags:
     - shell
   script:
-    - echo "git init"
-    - echo "git add $GITHUB_REPO"
-    - echo "git add --all"
-    - echo "git commit -m $CI_COMMIT_MESSAGE"
-    - echo "git push origin master"
+    - echo 'git init'
+    - echo 'git remote add origin $GITHUB_REPO'
+    - echo 'git add --all'
+    - echo 'git commit -m "$CI_COMMIT_MESSAGE"'
+    - echo 'git push origin master'
