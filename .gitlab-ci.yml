@@ -1,0 +1,39 @@
+---
+variables:
+  GITHUB_REPO: "git@github.com:thorian93/ansible-role-journald.git"
+
+stages:
+  - linting
+  - deploy
+
+ansible-lint:
+  stage: linting
+  tags:
+    - shell
+  script:
+    - ansible-lint tasks/*.yml
+
+yaml-lint:
+  stage: linting
+  tags:
+    - shell
+  script:
+    - yamllint tasks/*.yml
+
+shell-lint:
+  stage: linting
+  tags:
+    - shell
+  script:
+    - shellcheck */*.sh
+
+deploy-github:
+  stage: deploy
+  tags:
+    - shell
+  script:
+    - echo "git init"
+    - echo "git add $GITHUB_REPO"
+    - echo "git add --all"
+    - echo "git commit -m $CI_COMMIT_MESSAGE"
+    - echo "git push origin master"
