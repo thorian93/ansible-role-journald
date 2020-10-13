@@ -1,4 +1,8 @@
 ---
+# include:
+#   - template: thorian-linting-to-github.gitlab-ci.yml
+#   - template: thorian-linting.gitlab-ci.yml
+
 variables:
   GITHUB_REPO: "git@github.com:thorian93/ansible-role-journald.git"
 
@@ -25,7 +29,7 @@ shell-lint:
   tags:
     - shell
   script:
-    - shellcheck */*.sh
+    - find ./ -name "*.sh" -exec shellcheck {} \;
 
 deploy-github:
   stage: deploy
