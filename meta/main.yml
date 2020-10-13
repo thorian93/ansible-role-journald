@@ -11,16 +11,16 @@ galaxy_info:
     - server
 
   platforms:
-    - name: CentOS
+    - name: EL
       versions:
       - 6
       - 7
       - 8
     - name: Debian
       versions:
-      - 8
-      - 9
-      - 10
+      - Jessie
+      - Stretch
+      - Buster
     - name: Fedora
       versions:
       - 25
@@ -40,6 +40,6 @@ galaxy_info:
       - 15.2
     - name: Ubuntu
       versions:
-      - 14
-      - 16
-      - 18
+      - Trusty
+      - Xenial
+      - Bionic
