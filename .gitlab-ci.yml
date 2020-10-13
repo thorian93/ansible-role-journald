@@ -17,7 +17,8 @@ clean-build-area:
   tags:
     - shell
   script:
-    - rm -rf ./
+    - rm -rf ./*
+    - rm -rf ./.git/
 
 ansible-lint:
   stage: linting
