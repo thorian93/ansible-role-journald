@@ -17,3 +17,6 @@ journald_stable_os:
   - Ubuntu 14
   - Ubuntu 16
   - Ubuntu 18
+  - Ubuntu 20
+  - openSUSE Leap 15
+  - openSUSE Leap 42

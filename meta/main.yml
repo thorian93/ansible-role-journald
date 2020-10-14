@@ -38,8 +38,10 @@ galaxy_info:
     - name: opensuse
       versions:
       - 15.2
+      - 42.2
     - name: Ubuntu
       versions:
       - Trusty
       - Xenial
       - Bionic
+      - Focal
