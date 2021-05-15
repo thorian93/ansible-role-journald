@@ -14,6 +14,7 @@ journald_stable_os:
   - Fedora 30
   - Fedora 31
   - Fedora 32
+  - Fedora 33
   - Ubuntu 14
   - Ubuntu 16
   - Ubuntu 18
