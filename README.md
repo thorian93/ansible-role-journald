@@ -2,9 +2,9 @@
 
 This role ensures persistent logging for journald on RHEL/CentOS, Debian/Ubuntu and Fedora servers.
 
-[![Ansible Role: Journald](https://img.shields.io/ansible/role/51249?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_journald)
-[![Ansible Role: Journald](https://img.shields.io/ansible/quality/51249?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_journald)
-[![Ansible Role: Journald](https://img.shields.io/ansible/role/d/51249?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_journald)
+[![Ansible Role: Journald](https://img.shields.io/ansible/role/55135?style=flat-square)](https://galaxy.ansible.com/thorian93/journald)
+[![Ansible Role: Journald](https://img.shields.io/ansible/quality/55135?style=flat-square)](https://galaxy.ansible.com/thorian93/journald)
+[![Ansible Role: Journald](https://img.shields.io/ansible/role/d/55135?style=flat-square)](https://galaxy.ansible.com/thorian93/journald)
 
 ## Requirements
 
