@@ -1,6 +1,6 @@
 # Ansible Role: Journald
 
-This role ensures persistent logging for journald on RHEL/CentOS, Debian/Ubuntu and Fedora servers.
+This role ensures persistent logging for journald on Debian/Ubuntu, RHEL/CentOS and Fedora servers.
 
 [![Ansible Role: Journald](https://img.shields.io/ansible/role/55135?style=flat-square)](https://galaxy.ansible.com/thorian93/journald)
 [![Ansible Role: Journald](https://img.shields.io/ansible/quality/55135?style=flat-square)](https://galaxy.ansible.com/thorian93/journald)
@@ -12,7 +12,7 @@ No special requirements; note that this role requires root access, so either run
 
     - hosts: foobar
       roles:
-        - role: ansible-role-journald
+        - role: thorian93.journald
           become: yes
 
 ## Role Variables
