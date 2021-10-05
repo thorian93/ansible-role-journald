@@ -33,6 +33,7 @@ galaxy_info:
         - 31
         - 32
         - 33
+        - 34
     - name: SLES
       versions:
         - 11
